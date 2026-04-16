@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "name": "Sarah Johnson",
+    "picture": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=faces",
+    "email": "sarah.j@example.com",
+    "days_since_contact": 18,
+    "status": "overdue",
+    "tags": ["college", "close friend"],
+    "bio": "Met at State University. We were roommates for 3 years. Love trying new coffee shops together.",
+    "goal": 14,
+    "next_due_date": "2026-04-01"
+  },
+  {
+    "id": 2,
+    "name": "Michael Chen",
+    "picture": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=faces",
+    "email": "m.chen@example.com",
+    "days_since_contact": 5,
+    "status": "on-track",
+    "tags": ["work", "mentor"],
+    "bio": "Former colleague at TechCorp. He taught me everything about software engineering.",
+    "goal": 10,
+    "next_due_date": "2026-04-25"
+  },
+  {
+    "id": 3,
+    "name": "Emily Rodriguez",
+    "picture": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=faces",
+    "email": "emily.r@example.com",
+    "days_since_contact": 12,
+    "status": "almost due",
+    "tags": ["book club", "neighbor"],
+    "bio": "Neighbor for 5 years. We started a monthly book club together.",
+    "goal": 14,
+    "next_due_date": "2026-04-18"
+  },
+  {
+    "id": 4,
+    "name": "David Wilson",
+    "picture": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=faces",
+    "email": "d.wilson@example.com",
+    "days_since_contact": 3,
+    "status": "on-track",
+    "tags": ["sports", "basketball"],
+    "bio": "Played basketball together in high school. Still meet up to watch games.",
+    "goal": 7,
+    "next_due_date": "2026-04-23"
+  },
+  {
+    "id": 5,
+    "name": "Jessica Thompson",
+    "picture": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop&crop=faces",
+    "email": "j.thompson@example.com",
+    "days_since_contact": 25,
+    "status": "overdue",
+    "tags": ["childhood", "best friend"],
+    "bio": "Best friend since we were 8 years old. Grew up on the same street.",
+    "goal": 14,
+    "next_due_date": "2026-03-25"
+  },
+  {
+    "id": 6,
+    "name": "Ryan Martinez",
+    "picture": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&h=150&fit=crop&crop=faces",
+    "email": "r.martinez@example.com",
+    "days_since_contact": 9,
+    "status": "almost due",
+    "tags": ["music", "band"],
+    "bio": "We were in a band together in college. He played guitar, I played drums.",
+    "goal": 10,
+    "next_due_date": "2026-04-20"
+  },
+  {
+    "id": 7,
+    "name": "Amanda Lee",
+    "picture": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=faces",
+    "email": "a.lee@example.com",
+    "days_since_contact": 1,
+    "status": "on-track",
+    "tags": ["yoga", "wellness"],
+    "bio": "Met at yoga studio. We go to morning classes together on Saturdays.",
+    "goal": 7,
+    "next_due_date": "2026-04-24"
+  },
+  {
+    "id": 8,
+    "name": "Chris Anderson",
+    "picture": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=faces",
+    "email": "c.anderson@example.com",
+    "days_since_contact": 15,
+    "status": "overdue",
+    "tags": ["travel", "adventure"],
+    "bio": "Traveled through Southeast Asia together in 2023. Best trip ever!",
+    "goal": 14,
+    "next_due_date": "2026-04-02"
+  }
+]
