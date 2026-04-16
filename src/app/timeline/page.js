@@ -3,9 +3,11 @@
 import Navbar from "@/components/shared/navbar/Navbar";
 import Footer from "@/components/shared/footer/Footer";
 import { useTimeline } from "@/context/TimelineContext";
+import { useState } from "react";
 
 export default function Timeline() {
   const { timelineEntries } = useTimeline();
+  const [filter, setFilter] = useState("all");
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
@@ -26,6 +28,10 @@ export default function Timeline() {
     }
   };
 
+  const filteredEntries = filter === "all" 
+    ? timelineEntries 
+    : timelineEntries.filter(entry => entry.type === filter);
+
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
@@ -34,22 +40,28 @@ export default function Timeline() {
           <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-8">Timeline</h1>
           <div className="mb-6">
             <select 
-              className="bg-white border border-gray-200 text-gray-500 text-sm rounded-lg px-4 py-3 w-80"
-              disabled
+              value={filter}
+              onChange={(e) => setFilter(e.target.value)}
+              className="bg-white border border-gray-200 text-gray-700 text-sm rounded-lg px-4 py-3 w-80 cursor-pointer"
             >
-              <option>Filter timeline</option>
+              <option value="all">All interactions</option>
+              <option value="call">Call</option>
+              <option value="text">Text</option>
+              <option value="video">Video</option>
             </select>
           </div>
-          {timelineEntries.length === 0 ? (
+          {filteredEntries.length === 0 ? (
             <div className="text-center py-12">
-              <p className="text-gray-500 text-lg">No timeline entries yet</p>
+              <p className="text-gray-500 text-lg">
+                {filter === "all" ? "No timeline entries yet" : `No ${filter} entries yet`}
+              </p>
               <p className="text-gray-400 text-sm mt-2">
                 Start by checking in with a friend!
               </p>
             </div>
           ) : (
             <div className="space-y-4">
-              {timelineEntries.map((entry) => (
+              {filteredEntries.map((entry) => (
                 <div
                   key={entry.id}
                   className="bg-white rounded-lg border border-gray-100 p-5 shadow-sm"
