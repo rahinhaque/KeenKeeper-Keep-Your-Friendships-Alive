@@ -18,6 +18,7 @@ const Friends = () => {
       } catch (error) {
         console.error("Error fetching friends:", error);
       } finally {
+        await new Promise(resolve => setTimeout(resolve, 800));
         setLoading(false);
       }
     };

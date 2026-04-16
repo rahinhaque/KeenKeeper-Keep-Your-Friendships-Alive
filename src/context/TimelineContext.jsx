@@ -1,23 +1,12 @@
 "use client";
 
-import React, { createContext, useContext, useState, useEffect } from "react";
+import React, { createContext, useContext, useState } from "react";
 
 const TimelineContext = createContext();
 
 export function TimelineProvider({ children }) {
   const [timelineEntries, setTimelineEntries] = useState([]);
   const [toast, setToast] = useState(null);
-
-  useEffect(() => {
-    const stored = localStorage.getItem("keenkeeper-timeline");
-    if (stored) {
-      setTimelineEntries(JSON.parse(stored));
-    }
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem("keenkeeper-timeline", JSON.stringify(timelineEntries));
-  }, [timelineEntries]);
 
   const addTimelineEntry = (friendName, type) => {
     const now = new Date();
