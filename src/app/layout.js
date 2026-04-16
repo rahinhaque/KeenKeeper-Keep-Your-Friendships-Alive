@@ -1,5 +1,10 @@
+"use client";
+
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { TimelineProvider } from "@/context/TimelineContext";
+import Toast from "@/components/shared/Toast";
+import { useTimeline } from "@/context/TimelineContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -11,11 +16,16 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata = {
-  title: "KeenKeeper — Keep Your Friendships Alive",
-  description:
-    "KeenKeeper helps you nurture and maintain your friendships with thoughtful reminders and tools.",
-};
+function LayoutContent({ children }) {
+  const { toast } = useTimeline();
+
+  return (
+    <>
+      {children}
+      {toast && <Toast message={toast.message} type={toast.type} />}
+    </>
+  );
+}
 
 export default function RootLayout({ children }) {
   return (
@@ -25,7 +35,9 @@ export default function RootLayout({ children }) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        {children}
+        <TimelineProvider>
+          <LayoutContent>{children}</LayoutContent>
+        </TimelineProvider>
       </body>
     </html>
   );

@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { HashLoader } from "react-spinners";
 
 const Friends = () => {
   const [friends, setFriends] = useState([]);
@@ -51,7 +52,7 @@ const Friends = () => {
             Your Friends
           </h2>
           <div className="flex items-center justify-center py-12">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#2c4f42]"></div>
+            <HashLoader color="#2c4f42" size={60} />
           </div>
         </div>
       </div>

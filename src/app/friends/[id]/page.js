@@ -9,11 +9,13 @@ import Footer from "@/components/shared/footer/Footer";
 import callIcon from "@/assets/call.png";
 import textIcon from "@/assets/text.png";
 import videoIcon from "@/assets/video.png";
+import { useTimeline } from "@/context/TimelineContext";
 
 export default function FriendDetail() {
   const params = useParams();
   const [friend, setFriend] = useState(null);
   const [loading, setLoading] = useState(true);
+  const { addTimelineEntry } = useTimeline();
 
   useEffect(() => {
     const fetchFriend = async () => {
@@ -201,7 +203,10 @@ export default function FriendDetail() {
                   </button>
                 </div>
                 <p className="text-gray-600 text-lg">
-                  Connect every <span className="font-bold text-gray-800">{friend.goal} days</span>
+                  Connect every{" "}
+                  <span className="font-bold text-gray-800">
+                    {friend.goal} days
+                  </span>
                 </p>
               </div>
               <div className="bg-white rounded-lg shadow-md p-6">
@@ -209,24 +214,54 @@ export default function FriendDetail() {
                   Quick Check-In
                 </p>
                 <div className="grid grid-cols-3 gap-4">
-                  <button className="flex flex-col items-center justify-center py-6 border border-gray-100 rounded-lg bg-gray-50 hover:bg-gray-100">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 mb-2 text-gray-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <button
+                    onClick={() => addTimelineEntry(friend.name, "call")}
+                    className="flex flex-col items-center justify-center py-6 border border-gray-100 rounded-lg bg-gray-50 hover:bg-gray-100 cursor-pointer"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-7 w-7 mb-2 text-gray-700"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
                       <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
                     </svg>
                     <span className="text-lg font-medium text-gray-700">
                       Call
                     </span>
                   </button>
-                  <button className="flex flex-col items-center justify-center py-6 border border-gray-100 rounded-lg bg-gray-50 hover:bg-gray-100">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 mb-2 text-gray-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <button
+                    onClick={() => addTimelineEntry(friend.name, "text")}
+                    className="flex flex-col items-center justify-center py-6 border border-gray-100 rounded-lg bg-gray-50 hover:bg-gray-100 cursor-pointer"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-7 w-7 mb-2 text-gray-700"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
                       <path d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
                     </svg>
                     <span className="text-lg font-medium text-gray-700">
                       Text
                     </span>
                   </button>
-                  <button className="flex flex-col items-center justify-center py-6 border border-gray-100 rounded-lg bg-gray-50 hover:bg-gray-100">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 mb-2 text-gray-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <button
+                    onClick={() => addTimelineEntry(friend.name, "video")}
+                    className="flex flex-col items-center justify-center py-6 border border-gray-100 rounded-lg bg-gray-50 hover:bg-gray-100 cursor-pointer"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-7 w-7 mb-2 text-gray-700"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
                       <path d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
                     </svg>
                     <span className="text-lg font-medium text-gray-700">
